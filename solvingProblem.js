@@ -5,17 +5,14 @@
 //* Kilometer To Meter Convertion Solving
 
 function kilometerToMeter(value){
-    if(value < 0){
-        return 'Your input is Negitive Number, Please input Correct Number'
-    }
-    else if(typeof value !== 'number' ){
-        return 'Not a Number! Enter actual number value';
+    if(value < 0 || typeof value !== 'number'){
+        return 'Invalid Number'
     }
     else{
         return value * 1000;
     }
 }
-// var result = kilometerToMeter(2.2);
+// var result = kilometerToMeter(1);
 // console.log(result);
 
 
@@ -47,3 +44,34 @@ function budgetCalculator(watch, phone, laptop){
 
 // var Sum = budgetCalculator(5, 5, 5);
 // console.log(Sum) 
+
+
+
+
+
+
+//* Hotel Cost Solving
+
+function hotelCost(day){
+    var cost = 0
+    if(day < 0 || typeof day !== 'number'){
+        return 'Invalid Number';
+    }
+    else{
+        for(var i = 1 ; i <= day ; i++){
+           if(i >= 1 && i <= 10){
+               cost = cost + 100;
+           }
+           else if(i >= 11 && i <= 20){
+               cost = cost + 80;
+           }
+           else{
+               cost = cost + 50;
+           }
+        }
+    }
+    return cost;
+}
+
+// var totalHotelBill = hotelCost(21);
+// console.log(totalHotelBill) 
