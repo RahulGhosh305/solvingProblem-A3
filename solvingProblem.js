@@ -2,17 +2,19 @@
 
 
 
+
+
 //* Kilometer To Meter Convertion Solving
 
 function kilometerToMeter(value){
     if(value < 0 || typeof value !== 'number'){
-        return 'Invalid Number'
+        return 'Invalid Input';
     }
     else{
         return value * 1000;
     }
 }
-// var result = kilometerToMeter(1);
+// var result = kilometerToMeter(5);
 // console.log(result);
 
 
@@ -26,24 +28,18 @@ function kilometerToMeter(value){
 //* Budget Calculator Solving
 
 function budgetCalculator(watch, phone, laptop){
-    var watchCost = 50;
-    var phoneCost = 100;
-    var laptopCost = 500;
-
     if(watch < 0 || phone < 0 || laptop < 0){
         return 'Please Enter Positive values';
     }
-    else if (typeof watch !== 'number' || typeof phone !== 'number' || typeof laptop !== 'number'){
-        return 'Not a number';
-    }
     else{
-        var Amount = watch * watchCost + phone * phoneCost + laptop * laptopCost;
+        var Amount = watch * 50 + phone * 100 + laptop * 500;
         return Amount;
     }
 }
-
-// var Sum = budgetCalculator(5, 5, 5);
+// var Sum = budgetCalculator(1,2,3);
 // console.log(Sum) 
+
+
 
 
 
@@ -58,20 +54,52 @@ function hotelCost(day){
         return 'Invalid Number';
     }
     else{
-        for(var i = 1 ; i <= day ; i++){
-           if(i >= 1 && i <= 10){
-               cost = cost + 100;
-           }
-           else if(i >= 11 && i <= 20){
-               cost = cost + 80;
-           }
-           else{
-               cost = cost + 50;
-           }
+        if(day <= 10){
+            cost = day * 100;
         }
-    }
+        else if(day <= 20){
+            var firstTenDays = 10 * 100;
+            var remainingDays = day - 10;
+            var afterTendays = remainingDays * 80;
+            cost = firstTenDays + afterTendays;
+        }
+        else{
+            var firstTenDays = 10 * 100;
+            var secondTenDays = 10 * 80;
+            var remainingDays = day - 20;
+            var afterTwentyDays = remainingDays * 50;
+            cost = firstTenDays + secondTenDays +afterTwentyDays;
+        }
     return cost;
+    }
 }
-
-// var totalHotelBill = hotelCost(21);
+// var totalHotelBill = hotelCost(22);
 // console.log(totalHotelBill) 
+
+
+
+
+
+
+
+
+
+
+//* Mega Friend Solving
+
+function megaFriend(names){
+    if(names.length === 0 || !Array.isArray(names)){
+        return 'Input is Invalid'
+    }
+    else{        
+        let longest = '';
+        for (let i = 0; i < names.length; i++) {
+        if (names[i].length > longest.length)
+        longest = names[i];
+        }
+        return longest;      
+    }
+}
+// var names = ['Ujjal', 'Nila', 'Joy', 'Digonto', 'Sabbir', 'Shahajahan']; 
+// var findLongerName = megaFriend(names);
+// console.log(findLongerName);
